@@ -1,6 +1,6 @@
 const hacks = require("./hacks/hacks.js")
 
-let unsortedList = [hacks.Elements(1000)]
+let unsortedList = [hacks.Elements(10)]
 
 function DivideAndConquer(list) { // don't forget to input array in the corner brackets
     for (let index = 0; index < list.length; index++) {
@@ -21,15 +21,6 @@ function DivideAndConquer(list) { // don't forget to input array in the corner b
     if (!isDividedToAtomic) DivideAndConquer(list)
 }
 
-function InsertElements(mergedList, list, otherList, index, otherIndex) {
-    if (list[index] < otherList[otherIndex]) {
-        mergedList.push(list[index])
-        index++ 
-    }
-    
-    return index
-}
-
 function PutRest(mergedList, list, currentIndex) {
     // console.log(list, currentIndex)
     for (let index = currentIndex; index < list.length; index++) {
@@ -37,36 +28,31 @@ function PutRest(mergedList, list, currentIndex) {
     }
 }
 
-/* function SortTwoArrays(list, list1, list2) {
-    let index1 = 0,
-    index2 = 0,
-    mergedList = []
-    console.log(list1, list2)
-    while (list1[index1] && list2[index2]) {
-        if (list1[index1] < list2[index2]) {
-            mergedList.push(list1[index1])
-            index1++ 
-        }
-        else if (list2[index2] < list1[index1]) {
-            console.log("value1", list2[index2])
-            mergedList.push(list2[index2])
-            index2++ 
-        }
-        else {
-            mergedList.push(list2[index2], list1[index1])
-            index1++
-            index2++
-        }
-    }
-    console.log("list1: ", list1[index1] == undefined, "list2: ", list2[index2] == undefined)
-    if (list1[index1]) PutRest(mergedList, list1, index1)
-    else if (list2[index2]) PutRest(mergedList, list2, index2)
-    console.log(mergedList)
-    list.splice(list.indexOf(list1), 2, mergedList)
-} */
-
 const areBothDefined = (value1, value2) => {
     return value1 != undefined && value2 != undefined
+}
+
+function CompareTwoElements(mergedList, list1, list2, index1, index2) {
+    if (list2[index2] === list1[index1]) {
+        mergedList.push(list1[index1], list2[index2])
+
+        index1++
+        index2++
+    }
+    else if (list1[index1] < list2[index2]) {
+        // console.log(smallUnit1[index1])
+        mergedList.push(list1[index1])
+
+        index1++
+    }
+    else {
+        // console.log(smallUnit2[index2])
+        mergedList.push(list2[index2])
+        
+        index2++
+    }
+
+    return {1: index1, 2: index2}
 }
 
 function SortTwoArrays(list, smallUnit1, smallUnit2, index1 = 0, index2 = 0, mergedList = []) {
@@ -79,25 +65,12 @@ function SortTwoArrays(list, smallUnit1, smallUnit2, index1 = 0, index2 = 0, mer
         else if (smallUnit2[index2]) PutRest(mergedList, smallUnit2, index2)
     }
     else {
-        if (smallUnit2[index2] === smallUnit1[index1]) {
-            mergedListCopy.push(smallUnit1[index1], smallUnit2[index2])
+        const container = CompareTwoElements(mergedListCopy, smallUnit1, smallUnit2, index1, index2)
 
-            index1Copy++
-            index2Copy++
-        }
-        else if (smallUnit1[index1] < smallUnit2[index2]) {
-            // console.log(smallUnit1[index1])
-            mergedListCopy.push(smallUnit1[index1])
-
-            index1Copy++
-        }
-        else {
-            // console.log(smallUnit2[index2])
-            mergedList.push(smallUnit2[index2])
-            
-            index2Copy++
-        }
+        index1Copy = container["1"]
+        index2Copy = container["2"]
     }
+
 
     if (mergedList.length < smallUnit1.length + smallUnit2.length) SortTwoArrays(list, smallUnit1, smallUnit2, index1Copy, index2Copy, mergedList)
     else {

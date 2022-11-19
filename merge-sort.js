@@ -84,4 +84,4 @@ function MergeSort(list) {
 }
 
 MergeSort(unsortedList)
-console.log("end: ", unsortedList)
+console.log(unsortedList)

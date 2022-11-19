@@ -1,6 +1,6 @@
 const hacks = require("./hacks/hacks.js")
 
-let unsortedList = [hacks.Elements(10)]
+let unsortedList = [hacks.Elements(250)]
 
 function DivideAndConquer(list) { // don't forget to input array in the corner brackets
     for (let index = 0; index < list.length; index++) {

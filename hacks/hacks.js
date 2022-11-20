@@ -27,9 +27,15 @@ Max = (list) => { // this function doesn't involve rational numbers and negative
     return max
 }
 
+function PutRest(mergedList, list, currentIndex = 0) {
+    for (let index = currentIndex; index < list.length; index++) {
+        mergedList.push(list[index])
+    }
+}
 
 module.exports = {
     Swap: Swap,
     Elements: Elements,
-    Max: Max
+    Max: Max,
+    PutRest: PutRest
 }

@@ -1,6 +1,6 @@
 const hacks = require("./hacks/hacks.js")
 
-let unsortedList = [hacks.Elements(250)]
+let unsortedList = hacks.Elements(10)
 
 function DivideAndConquer(list) { // don't forget to input array in the corner brackets
     for (let index = 0; index < list.length; index++) {
@@ -71,17 +71,24 @@ function Merge(list, smallUnit1, smallUnit2, index1 = 0, index2 = 0, mergedList 
 }
 
 function MergeSort(list) {
-    const n = list[0].length,
+    const n = list.length,
     merges = Math.ceil(Math.log2(n))
+
+    list = [list]
     DivideAndConquer(list)
-    
+
     for  (let merge = 0; merge < merges; merge++) {
         for (let array = 0; array < list.length; array++) {
             if (!list[array+1]) continue
             Merge(list, list[array], list[array+1])
+            
         }
     }
+    
+    list = list[0]
+    
+    return list
 }
 
-MergeSort(unsortedList)
+unsortedList = MergeSort(unsortedList)
 console.log(unsortedList)

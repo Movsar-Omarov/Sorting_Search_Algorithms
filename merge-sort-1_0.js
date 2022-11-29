@@ -8,7 +8,7 @@ function DivideAndConquer(list) { // don't forget to input array in the corner b
             const sublist = list[index],
             middle = Math.round(sublist.length/2),
             firstHalf = sublist.slice(0, middle),
-            secondHalf = sublist.slice(middle, sublist.length)
+            secondHalf = sublist.slice(middle)
 
             list.splice(index, 1, firstHalf, secondHalf)
         }
@@ -19,6 +19,14 @@ function DivideAndConquer(list) { // don't forget to input array in the corner b
     })
 
     if (!isDividedToAtomic) DivideAndConquer(list)
+}
+
+const convertedList = (list) => {return [list]}
+
+function PutRest(mergedList, list, currentIndex = 0) {
+    for (let index = currentIndex; index < list.length; index++) {
+        mergedList.push(list[index])
+    }
 }
 
 function CompareTwoElements(mergedList, list1, list2, index1, index2) {
@@ -64,22 +72,28 @@ function Merge(list, smallUnit1, smallUnit2, index1 = 0, index2 = 0, mergedList 
     }
 }
 
+function NormalizeList(list, listInBrackets) {
+    PutRest(list, listInBrackets)
+    list.shift()
+}
+
 function MergeSort(list) {
     const n = list.length,
     merges = Math.ceil(Math.log2(n))
-
-    list = [list]
-    DivideAndConquer(list)
+    let listProto = convertedList(list)
+    DivideAndConquer(listProto)
+    
     for  (let merge = 0; merge < merges; merge++) {
-        for (let array = 0; array < list.length; array++) {
-            if (!list[array+1]) continue
-            Merge(list, list[array], list[array+1])
-            
+        for (let array = 0; array < listProto.length; array++) {
+            if (!listProto[array+1]) continue
+            Merge(listProto, listProto[array], listProto[array+1])
         }
     }
-    list = list[0]
-    return list
+    
+    NormalizeList(listProto, listProto[0])
+
+    return listProto
 }
 
 unsortedList = MergeSort(unsortedList)
-console.log(unsortedList)
+console.log("end: ", unsortedList)

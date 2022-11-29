@@ -40,5 +40,5 @@ function SelectionSort(list) {
 SelectionSort(unsortedList)
 
 module.exports = {
-    Min: Min
+    SelectionSort: SelectionSort
 }

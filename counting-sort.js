@@ -60,3 +60,7 @@ function CountingSort(list) {
 unsortedList = CountingSort(unsortedList)
 
 console.log(unsortedList, `operations ${operations}`)
+
+module.exports = {
+    CoutingSort: CountingSort
+}

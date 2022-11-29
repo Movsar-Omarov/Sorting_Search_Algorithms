@@ -24,3 +24,7 @@ BubbleSort(unsortedList)
 
 console.log(unsortedList, `comparisions ${comparisions} and swaps ${swaps}`)
 console.log(2**3)
+
+module.exports = {
+    BubbleSort: BubbleSort
+}

@@ -27,13 +27,6 @@ Max = (list) => { // this function doesn't involve rational numbers and negative
     return max
 }
 
-<<<<<<< HEAD
-function PutRest(mergedList, list, currentIndex = 0) {
-    for (let index = currentIndex; index < list.length; index++) {
-        mergedList.push(list[index])
-    }
-}
-=======
 const convertedList = (list) => {return [list]}
 
 function NormalizeList(list, listInBrackets) {
@@ -44,16 +37,11 @@ function NormalizeList(list, listInBrackets) {
     list.shift()
 }
 
->>>>>>> examine-branch
 
 module.exports = {
     Swap: Swap,
     Elements: Elements,
     Max: Max,
-<<<<<<< HEAD
-    PutRest: PutRest
-=======
     convertedList: convertedList,
     NormalizeList: NormalizeList
->>>>>>> examine-branch
 }

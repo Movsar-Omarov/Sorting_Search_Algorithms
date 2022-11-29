@@ -1,3 +1,5 @@
+const hacks = require("./hacks/hacks.js")
+
 let unsortedList = [3, 1, 3, 4, 2, 22, 33, 4, 5, 6, 10],
 comparisions = 0
 
@@ -25,3 +27,7 @@ function InsertionSort(list) {
 InsertionSort(unsortedList)
 
 console.log(unsortedList, comparisions)
+
+module.exports = {
+    InsertionSort: InsertionSort
+}

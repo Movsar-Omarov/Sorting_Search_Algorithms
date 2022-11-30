@@ -44,17 +44,17 @@ function QuickSort(unsortedList) {
     hacks.Swap(unsortedList, pivot, lowerIndex)
 
     let listAfterDaC = DaC(unsortedList, lowerIndex)
-    // console.log(listAfterDaC)
+    
     return QuickSort(listAfterDaC.leftSide).concat(listAfterDaC.pivot, QuickSort(listAfterDaC.rightSide))
 }
 
 function DaC(unsortedList, pivot) {
     const leftSide = unsortedList.slice(0, pivot),
     rightSide = unsortedList.slice(pivot+1)
-    // console.log(leftSide, rightSide)
+   
     return {"leftSide": leftSide, "pivot": unsortedList[pivot], "rightSide": rightSide}
 }
 
-console.log(list)
-list = QuickSort(list)
-console.log(list)
+module.exports = {
+    QuickSort: QuickSort
+}

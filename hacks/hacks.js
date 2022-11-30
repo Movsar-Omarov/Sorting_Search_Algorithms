@@ -18,7 +18,7 @@ Elements = (number) => {
 }
 
 Max = (list) => { // this function doesn't involve rational numbers and negatives to create list for counting sort
-    let max = list[0]
+    let max = -Infinity
 
     for (const element of list) {
         if (element > max) max = element

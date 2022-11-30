@@ -28,10 +28,6 @@ function Merge(leftHalf, rightHalf) {
     return mergedList.concat(leftHalf).concat(rightHalf)
 }
 
-console.log(list)
-list = MergeSort(list)
-console.log(list)
-
 module.exports = {
     MergeSort: MergeSort
 }

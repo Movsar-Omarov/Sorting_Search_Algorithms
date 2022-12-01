@@ -37,11 +37,19 @@ function NormalizeList(list, listInBrackets) {
     list.shift()
 }
 
+const isSorted = (list) => {
+    return list.every((element, index) => {
+        if (index < list.length-1 && element <= list[index+1]) return true
+        else if (index == list.length-1) return true
+        return false
+    })
+}
 
 module.exports = {
     Swap: Swap,
     Elements: Elements,
     Max: Max,
     convertedList: convertedList,
-    NormalizeList: NormalizeList
+    NormalizeList: NormalizeList,
+    isSorted: isSorted
 }

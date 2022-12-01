@@ -38,7 +38,7 @@ function SelectionSort(list) {
 }
 
 SelectionSort(unsortedList)
-
+console.log(unsortedList, hacks.isSorted(unsortedList))
 module.exports = {
     SelectionSort: SelectionSort
 }

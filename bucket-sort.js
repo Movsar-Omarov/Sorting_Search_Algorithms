@@ -3,7 +3,7 @@ QuickSort = require("./quick-sort.js"),
 MergeSort = require("./merge-sort-2_0.js"),
 CountingSort = require("./counting-sort.js")
 
-let list = hacks.Elements(100)
+let list = hacks.Elements(500)
 
 const emptyList = (unsortedList) => {
     let max = hacks.Max(unsortedList),
@@ -36,7 +36,7 @@ function Scatter(unsortedList, sortingAlgorithm, withReturn) {
         else if (unsortedList[index] <= 5*condition) separatedList[condition-1].push(unsortedList[index])
     }
     
-    // sort separated set of values by chosen sorting algorithm
+    // sorts separated set of values by chosen sorting algorithm
 
     for (let set = 0; set < separatedList.length; set++) {
         if (withReturn) separatedList[set] = sortingAlgorithm(separatedList[set])
@@ -61,4 +61,4 @@ function BucketSort(unsortedList, sortingAlgorithm, withReturn) {
 
 console.log(list)
 list = BucketSort(list, MergeSort.MergeSort, true)
-console.log(list, list == list.sort())
+console.log(list, hacks.isSorted(list))

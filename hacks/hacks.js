@@ -21,7 +21,9 @@ Max = (list) => { // this function doesn't involve rational numbers and negative
     let max = -Infinity
 
     for (const element of list) {
-        if (element > max) max = element
+        const copy = Number(element)
+
+        if (copy > max) max = element
     }
 
     return max

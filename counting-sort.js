@@ -17,7 +17,8 @@ const CountList = (list) => {
 function IncreaseCountList(list, countList) {
    
     for (let element of list) {
-        countList[element]++
+        const copy = Number(element)
+        countList[copy]++
     }
 }
 
@@ -45,20 +46,23 @@ function CountingSort(list) {
     emptyList = []
 
     DisplaceCounts(list, countList)
-
+    
     for (const element of list) {
-        const countIndex = countList[element]
+        const copy = Number(element),
+        countIndex = countList[copy]
        
         emptyList[countIndex] = element
         operations++
-        countList[element]++
+        countList[copy]++
     }
     
     return emptyList
 }
 
+x = ["1", "20", "5", "06"]
+
 unsortedList = CountingSort(unsortedList)
 
 module.exports = {
-    CoutingSort: CountingSort
+    CountingSort: CountingSort
 }

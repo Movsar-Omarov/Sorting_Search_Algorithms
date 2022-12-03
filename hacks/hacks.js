@@ -17,13 +17,13 @@ Elements = (number) => {
     return list
 }
 
-Max = (list) => { // this function doesn't involve rational numbers and negatives to create list for counting sort
+Max = (list, end = 0) => { // this function doesn't involve rational numbers and negatives to create list for counting sort
     let max = -Infinity
 
-    for (const element of list) {
-        const copy = Number(element)
+    for (let index = 0; index < list.length-end; index++) {
+        const copy = Number(list[index])
 
-        if (copy > max) max = element
+        if (copy > max) max = list[index]
     }
 
     return max

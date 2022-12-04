@@ -12,8 +12,7 @@ function ShellSort(unsortedList) {
 
         // ends if currentIndex or to compared Index is greater than list
 
-        while (currentIndex + distance <= unsortedList.length) { // Error
-            
+        while (currentIndex + distance <= unsortedList.length) {
             if (unsortedList[currentIndex] > unsortedList[currentIndex+distance]) hacks.Swap(unsortedList, currentIndex, currentIndex+distance)
             
             currentIndex++

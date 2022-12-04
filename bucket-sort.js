@@ -9,7 +9,7 @@ const emptyList = (unsortedList) => {
     let max = hacks.Max(unsortedList),
     emptyList = []
 
-    // increase max up to it is divided by 5
+    // increase max until it is divided by 5
 
     while (max % 5 != 0) {
         max++
@@ -27,7 +27,7 @@ const emptyList = (unsortedList) => {
 function Scatter(unsortedList, sortingAlgorithm, withReturn) {
     let separatedList = emptyList(unsortedList)
     
-    // separate all of values into lists
+    // separate all of values into lists by amount condition
 
     for (let index = 0; index < unsortedList.length; index++) {
         const condition = Math.ceil(unsortedList[index]/5)

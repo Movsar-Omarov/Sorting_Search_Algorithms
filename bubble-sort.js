@@ -1,4 +1,4 @@
-const hacks = require("./hacks/hacks")
+const hacks = require("./hacks/hacks.js")
 
 let unsortedList = hacks.Elements(10000000),
 comparisions = 0,

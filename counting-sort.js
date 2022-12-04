@@ -59,8 +59,6 @@ function CountingSort(list) {
     return emptyList
 }
 
-x = ["1", "20", "5", "06"]
-
 unsortedList = CountingSort(unsortedList)
 
 module.exports = {

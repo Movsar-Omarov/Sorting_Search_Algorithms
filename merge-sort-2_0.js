@@ -28,6 +28,8 @@ function Merge(leftHalf, rightHalf) {
     return mergedList.concat(leftHalf).concat(rightHalf)
 }
 
+console.log(list = MergeSort(list))
+
 module.exports = {
     MergeSort: MergeSort
 }

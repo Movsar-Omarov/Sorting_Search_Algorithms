@@ -15,10 +15,9 @@ const childAndParent = (tree, max) => {
         
         if (tree[leftChildIndex] == max) return {child: leftChildIndex, parent: parentIndex}
         else if (tree[rightChildIndex] == max) return {child: rightChildIndex, parent: parentIndex} 
+
         parentIndex++
     }
-    
-    
 }
 
 function Heapify(unsortedList, end) {

@@ -59,6 +59,6 @@ function BucketSort(unsortedList, sortingAlgorithm, withReturn) {
     return sortedList
 }
 
-console.log(list)
-list = BucketSort(list, MergeSort.MergeSort, true)
-console.log(list, hacks.isSorted(list))
+module.exports = {
+    BucketSort: BucketSort
+}

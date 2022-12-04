@@ -24,6 +24,6 @@ function ShellSort(unsortedList) {
     }
 }
 
-console.log(list)
-ShellSort(list)
-console.log(list, hacks.isSorted(list))
+module.exports = {
+    ShellSort: ShellSort
+}

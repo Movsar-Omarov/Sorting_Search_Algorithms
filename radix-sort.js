@@ -50,6 +50,6 @@ function RadixSort(unsortedList) {
     return sortedList
 }
 
-console.log(list)
-list = RadixSort(list)
-console.log(list, hacks.isSorted(list))
+module.exports = {
+    RadixSort: RadixSort
+}

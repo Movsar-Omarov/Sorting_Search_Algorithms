@@ -12,4 +12,6 @@ function LinearSearch(list, wantedElement) {
 
 const wantedElement = LinearSearch(list, 5)
 
-console.log(wantedElement, list)
+module.exports = {
+    LinearSearch: LinearSearch
+}

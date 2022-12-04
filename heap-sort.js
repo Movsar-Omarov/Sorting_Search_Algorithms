@@ -43,6 +43,6 @@ function HeapSort(unsortedList) {
     }
 }
 
-console.log(list)
-HeapSort(list)
-console.log(list, hacks.isSorted(list))
+module.exports = {
+    HeapSort: HeapSort
+}

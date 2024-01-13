@@ -44,5 +44,6 @@ function HeapSort(unsortedList) {
 }
 
 module.exports = {
-    HeapSort: HeapSort
+    HeapSort: HeapSort,
+    Heapify: Heapify
 }
